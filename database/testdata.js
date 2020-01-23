@@ -68,6 +68,15 @@
               "description": "Beets, crumbled chèvre and pistachios tossed in mixed greens and our orange and pumpkin seed dressing with ginger, green onion and rosemary. GF"
             }
           ]
+        },{
+          "title": "Entrees",
+          "items": [
+            {
+              "title": "10 Oz, Cab™* Rib Eye*",
+              "price": "$38.00",
+              "description": "Cooked to order and finished with thyme, garlic and rosemary butter. Served with red potato mashers with sour cream and chives, and seasonal roasted vegetables. GF"
+            }
+          ]
         }
       ]
     }
