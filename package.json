@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start:dev": "nodemon ./server/index.js",
-    "build:dev": "webpack -d --watch"
+    "build:dev": "webpack -d --watch",
+    "seed": "node ./database/seed.js"
   },
   "dependencies": {
     "@babel/core": "^7.8.3",
@@ -17,6 +18,9 @@
     "css-loader": "^3.4.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.8.9",
     "mysql": "^2.18.0",
     "node": "^13.6.0",
     "nodemon": "^2.0.2",
