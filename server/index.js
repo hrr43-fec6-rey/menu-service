@@ -1,5 +1,6 @@
 var express = require('express');
 require('dotenv').config();
+const db = require('./../database');
 
 var app = express();
 
@@ -7,8 +8,11 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
 
-app.get('/api', (req, res) => {
-
+app.get('/getmenu/:id', (req, res) => {
+  console.log('requesting ' + req.params.id);
+  db.getRestaurantMenu(req.params.id, restaurant => {
+    res.status(200).send(restaurant);
+  });
 });
 
 

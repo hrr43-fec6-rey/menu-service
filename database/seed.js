@@ -36,24 +36,24 @@ for (let i = 0; i < 100; i++) {
   }
 }
 
-let itemSchema = mongoose.Schema({
+const itemSchema = mongoose.Schema({
   title: String,
   price: String,
   description: String
 });
 
-let sectionSchema = mongoose.Schema({
+const sectionSchema = mongoose.Schema({
   title: String,
   items: [itemSchema]
 });
 
-let menuSchema = mongoose.Schema({
+const menuSchema = mongoose.Schema({
   title: String,
   description: String,
   sections: [sectionSchema]
 });
 
-let restaurantSchema = mongoose.Schema({
+const restaurantSchema = mongoose.Schema({
   id: {
     type: Number,
     unique: true
@@ -64,8 +64,10 @@ let restaurantSchema = mongoose.Schema({
 
 const Restaurants = mongoose.model('restaurants', restaurantSchema);
 
-Restaurants.collection.insert(records, (err) => {
-  if (err) console.log(err);
-  console.log("Complete");
-  process.exit(0);
+Restaurants.remove({}, (err) => {
+  Restaurants.collection.insert(records, (err) => {
+    if (err) console.log(err);
+    console.log("Complete");
+    process.exit(0);
+  });
 });

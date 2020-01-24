@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
 .menu-main {
-  color: darkgreen;
-  text-decoration: underline;
+  color: rgb(42, 42, 42);
   background-color: gainsboro;
+  font-family: 'Rubik', sans-serif;
+}
+
+.menu-nav-item {
+  font-size: 10px;
 }
