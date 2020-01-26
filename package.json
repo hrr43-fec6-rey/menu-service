@@ -7,8 +7,12 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "node ./server/index.js",
     "start:dev": "nodemon ./server/index.js",
-    "build:dev": "webpack -d --watch"
+    "build": "webpack",
+    "build:dev": "webpack -d --watch",
+    "seed": "node ./database/seed.js",
+    "mongo": "sudo service mongod start"
   },
   "dependencies": {
     "@babel/core": "^7.8.3",
@@ -17,6 +21,10 @@
     "css-loader": "^3.4.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "jquery": "^3.4.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.8.9",
     "mysql": "^2.18.0",
     "node": "^13.6.0",
     "nodemon": "^2.0.2",

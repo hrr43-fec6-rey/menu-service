@@ -1,9 +1,45 @@
 <html>
   <head>
     <title>Menu</title>
+    <style>
+      #test {
+        display: flex;
+        position: fixed;
+        width:100%;
+        height:100%;
+        transform: scale(0);
+        top: 0;
+        left: 0;
+        background-color: rgba(140, 190, 190, 0.8);
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        overflow: hidden;
+      }
+      #close {
+        position: absolute;
+        top:10px;
+        right:10px;
+        cursor: pointer;
+      }
+      #root {
+        background-color: azure;
+      }
+    </style>
   </head>
   <body>
     <div id="root">not loaded</div>
+    <button id="button1">SHOW</button>
+
+    <span id="test">HELLO THERE<div id="close">CLOSE</div></div>
     <script src="main.js"></script>
+    <script>
+      document.getElementById('close').addEventListener('click', e => {
+        document.getElementById('test').style.cssText = 'transform: scale(0)';
+      });
+      document.getElementById('button1').addEventListener('click', e => {
+        document.getElementById('test').style.cssText = 'transform: scale(1)';
+      });
+    </script>
   </body>
 </html>
