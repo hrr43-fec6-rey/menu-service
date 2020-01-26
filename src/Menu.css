@@ -50,6 +50,7 @@
 .menu-nav-item-selected {
   border: 2px solid #da3743;
   padding: 8px 15px 8px 15px;
+  outline: none;
 }
 
 .menu-menu-description {

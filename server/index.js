@@ -1,16 +1,16 @@
-var express = require('express');
+const express = require('express');
 require('dotenv').config();
 const db = require('./../database');
 
-var app = express();
+const app = express();
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
 
 app.get('/getmenu/:id', (req, res) => {
-  console.log('requesting ' + req.params.id);
-  db.getRestaurantMenu(req.params.id, restaurant => {
+  console.log(`requesting ${req.params.id}`);
+  db.getRestaurantMenu(req.params.id, (restaurant) => {
     res.status(200).send(restaurant);
   });
 });

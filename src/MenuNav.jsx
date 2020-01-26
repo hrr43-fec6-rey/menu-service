@@ -1,79 +1,83 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 const React = require('react');
 
 class MenuNav extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      viewFull: false
-    };
     this.handleClick = this.handleClick.bind(this);
-    this.changeView = this.changeView.bind(this);
+    this.handleView = this.handleView.bind(this);
   }
 
   handleClick(index) {
     this.props.action(index);
   }
 
-  changeView() {
+  handleView() {
     this.props.actionView();
   }
 
   render() {
-    if (!this.props.state.menus) return null;
+    if (!this.props.menus) return null;
 
-    let viewClass = this.props.state.viewFull ? ' full-view' : '';
+    const viewClass = this.props.viewFull ? ' full-view' : '';
 
     return (
-      <div className={'menu-and-nav' + viewClass}>
+      <div className={`menu-and-nav${viewClass}`}>
         <div className="menu-nav">
-          {this.props.state.menus.map((menu, index) =>
+          {this.props.menus.map((menu, index) => (
             <div
-              className={'menu-nav-item' + (index === this.props.state.menuSelected ? ' menu-nav-item-selected':'')}
+              className={`menu-nav-item${index === this.props.menuSelected ? ' menu-nav-item-selected' : ''}`}
               key={index}
+              role="button"
+              tabIndex="0"
               onClick={this.handleClick.bind(this, index)}
             >
               {menu.title}
             </div>
-          )}
+          ))}
         </div>
         <div className="menu-menu-description">
-          {this.props.state.menus[this.props.state.menuSelected].description}
+          {this.props.menus[this.props.menuSelected].description}
         </div>
 
-        {this.props.state.menus[this.props.state.menuSelected].sections.map((section, index) =>
-        <div className="menu-section" key={index}>
-          <div className="menu-section-title">
-            {section.title}
-          </div>
-          <div className="menu-items">
-            {section.items.map((item, index) =>
-              <div className="menu-item" key={index}>
-                <div className="menu-item-title">
-                  <div className="menu-item-title-name">
-                    {item.title}
+        {this.props.menus[this.props.menuSelected].sections.map((section, index) => (
+          <div className="menu-section" key={index}>
+            <div className="menu-section-title">
+              {section.title}
+            </div>
+            <div className="menu-items">
+              {section.items.map((item, index2) => (
+                <div className="menu-item" key={index2}>
+                  <div className="menu-item-title">
+                    <div className="menu-item-title-name">
+                      {item.title}
+                    </div>
+                    <div className="menu-item-title-price">
+                      {item.price}
+                    </div>
                   </div>
-                  <div className="menu-item-title-price">
-                    {item.price}
+                  <div className="menu-item-description">
+                    {item.description}
                   </div>
                 </div>
-                <div className="menu-item-description">
-                  {item.description}
-                </div>
-              </div>
-            )}
+              ))}
+            </div>
           </div>
-        </div>
-        )}
+        ))}
         <div className="menu-collapse">
-          {this.props.state.viewFull ? null : <div className="menu-collapse1"></div>}
-
+          {this.props.viewFull ? null : <div className="menu-collapse1" />}
           <div className="menu-collapse2">
             <div className="container1">
               <div
                 className="menu-view"
-                onClick={this.changeView}
+                role="button"
+                tabIndex="0"
+                onClick={this.handleView}
               >
-                {this.props.state.viewFull ? 'Collapse menu' : 'View full menu'}
+                {this.props.viewFull ? 'Collapse menu' : 'View full menu'}
               </div>
             </div>
           </div>
