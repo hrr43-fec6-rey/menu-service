@@ -3,22 +3,32 @@ const React = require('react');
 class MenuNav extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      viewFull: false
+    };
     this.handleClick = this.handleClick.bind(this);
+    this.changeView = this.changeView.bind(this);
   }
 
   handleClick(index) {
     this.props.action(index);
   }
 
+  changeView() {
+    this.props.actionView();
+  }
+
   render() {
-    if (!this.props.menus) return null;
+    if (!this.props.state.menus) return null;
+
+    let viewClass = this.props.state.viewFull ? ' full-view' : '';
+
     return (
-      <div className="menu-and-nav">
+      <div className={'menu-and-nav' + viewClass}>
         <div className="menu-nav">
-          {this.props.menus.map((menu, index) =>
+          {this.props.state.menus.map((menu, index) =>
             <div
-              className={'menu-nav-item' + (index === this.props.menuSelected ? ' menu-nav-item-selected':'')}
+              className={'menu-nav-item' + (index === this.props.state.menuSelected ? ' menu-nav-item-selected':'')}
               key={index}
               onClick={this.handleClick.bind(this, index)}
             >
@@ -27,10 +37,10 @@ class MenuNav extends React.Component {
           )}
         </div>
         <div className="menu-menu-description">
-          {this.props.menus[this.props.menuSelected].description}
+          {this.props.state.menus[this.props.state.menuSelected].description}
         </div>
 
-        {this.props.menus[this.props.menuSelected].sections.map((section, index) =>
+        {this.props.state.menus[this.props.state.menuSelected].sections.map((section, index) =>
         <div className="menu-section" key={index}>
           <div className="menu-section-title">
             {section.title}
@@ -55,10 +65,16 @@ class MenuNav extends React.Component {
         </div>
         )}
         <div className="menu-collapse">
-          <div className="menu-collapse1"></div>
+          {this.props.state.viewFull ? null : <div className="menu-collapse1"></div>}
+
           <div className="menu-collapse2">
             <div className="container1">
-              <div className="menu-view">View full menu</div>
+              <div
+                className="menu-view"
+                onClick={this.changeView}
+              >
+                {this.props.state.viewFull ? 'Collapse menu' : 'View full menu'}
+              </div>
             </div>
           </div>
         </div>
