@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/menus',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  });
+mongoose.connect('mongodb://localhost/menus', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
 
 const itemSchema = mongoose.Schema({
   title: String,

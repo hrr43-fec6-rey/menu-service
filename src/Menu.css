@@ -102,6 +102,10 @@
   display: inline-block;
 }
 
+.menu-item-description {
+  padding-right: 16px;
+}
+
 .menu-collapse {
   position: absolute;
   left: 0;
@@ -138,11 +142,15 @@
   border: 1px solid #d8d9db;
   cursor: pointer;
   user-select: none;
+  box-sizing: border-box;
+  outline-color: #da3743;
 }
 
 .menu-view:hover {
-  border: 2px solid #da3743;
-  padding: 11px 0 11px 0;
+  /* border: 2px solid #da3743; */
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: #da3743;
 }
 
 .full-view {

@@ -22,7 +22,12 @@ for (let i = 0; i < 100; i += 1) {
   for (let j = 0; j < 5; j += 1) {
     records[i].menus[j] = {
       title: faker.random.word(),
-      description: faker.lorem.sentence() + faker.lorem.sentence(),
+      description:
+        `${faker.lorem.sentence()}
+         ${faker.lorem.sentence()}
+         ${faker.lorem.sentence()}
+         ${faker.lorem.sentence()}
+         ${faker.lorem.sentence()}`,
       sections: [],
     };
 
@@ -36,7 +41,7 @@ for (let i = 0; i < 100; i += 1) {
         records[i].menus[j].sections[k].items[l] = {
           title: faker.random.words(),
           price: `$${faker.finance.amount()}`,
-          description: faker.lorem.sentence(),
+          description: `${faker.lorem.sentence()} ${faker.lorem.sentence()}`,
         };
       }
     }
@@ -71,10 +76,16 @@ const restaurantSchema = mongoose.Schema({
 
 const Restaurants = mongoose.model('restaurants', restaurantSchema);
 
-Restaurants.remove({}, () => {
-  Restaurants.collection.insert(records, (err) => {
-    if (err) console.log(err);
+Restaurants.remove({}, (err1) => {
+  if (err1) {
+    return console.log(err1);
+  }
+  Restaurants.collection.insert(records, (err2) => {
+    if (err2) {
+      return console.log(err2);
+    }
     console.log('Complete');
     process.exit(0);
   });
+  return null;
 });

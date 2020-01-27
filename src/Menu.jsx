@@ -19,9 +19,10 @@ class Menu extends React.Component {
   }
 
   componentDidMount() {
-    console.log('requesting');
+    const { id } = this.props;
+    console.log(`requesting ${id}`);
     $.ajax({
-      url: '/getmenu/2',
+      url: `/getmenu/${id}`,
       success: (restaurant) => {
         this.setState({ menus: restaurant[0].menus });
         console.log(`menus = ${restaurant[0].menus.length}`);

@@ -9,14 +9,28 @@ class MenuNav extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.handleView = this.handleView.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleKeyPress2 = this.handleKeyPress2.bind(this);
   }
 
   handleClick(index) {
     this.props.action(index);
   }
 
+  handleKeyPress(index, e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      this.props.action(index);
+    }
+  }
+
   handleView() {
     this.props.actionView();
+  }
+
+  handleKeyPress2(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      this.props.actionView();
+    }
   }
 
   render() {
@@ -34,6 +48,7 @@ class MenuNav extends React.Component {
               role="button"
               tabIndex="0"
               onClick={this.handleClick.bind(this, index)}
+              onKeyPress={this.handleKeyPress.bind(this, index)}
             >
               {menu.title}
             </div>
@@ -72,10 +87,12 @@ class MenuNav extends React.Component {
           <div className="menu-collapse2">
             <div className="container1">
               <div
+                key="mykey"
                 className="menu-view"
                 role="button"
                 tabIndex="0"
                 onClick={this.handleView}
+                onKeyPress={this.handleKeyPress2}
               >
                 {this.props.viewFull ? 'Collapse menu' : 'View full menu'}
               </div>
