@@ -85,7 +85,7 @@ Restaurants.remove({}, (err1) => {
       return console.log(err2);
     }
     console.log('Complete');
-    process.exit(0);
+    return process.exit(0);
   });
   return null;
 });
