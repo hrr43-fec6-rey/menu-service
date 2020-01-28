@@ -12,7 +12,8 @@
     "build": "webpack",
     "build:dev": "webpack -d --watch",
     "seed": "node ./database/seed.js",
-    "mongo": "sudo service mongod start"
+    "mongo": "sudo service mongod start",
+    "test": "jest"
   },
   "dependencies": {
     "@babel/core": "^7.8.3",
@@ -42,7 +43,9 @@
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.18.0"
+    "eslint-plugin-react": "^7.18.0",
+    "jest": "^25.1.0",
+    "puppeteer": "^2.1.0"
   },
   "version": "1.0.0",
   "main": ".eslintrc.js",
