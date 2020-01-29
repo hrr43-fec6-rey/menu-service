@@ -21,9 +21,15 @@ app.get('/gettitle/:id', (req, res) => {
     res.status(200).json(restaurant);
   });
 });
+<<<<<<< HEAD
 
 const port = (process.env.PORT ? process.env.PORT : 8000);
 
+=======
+
+const port = (process.env.PORT ? process.env.PORT : 8000);
+
+>>>>>>> master
 app.listen(port, () => {
   console.log(`App listening on port ${process.env.PORT}`);
 });

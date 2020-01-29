@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 function Title(props) {
   const [restaurantName, setRestaurantName] = useState('Loading....');
@@ -21,5 +22,13 @@ function Title(props) {
     </div>
   );
 }
+
+Title.defaultProps = {
+  id: '1',
+};
+
+Title.propTypes = {
+  id: PropTypes.string,
+};
 
 export default Title;
