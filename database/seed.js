@@ -27,6 +27,8 @@ for (let i = 0; i < 100; i += 1) {
          ${faker.lorem.sentence()}
          ${faker.lorem.sentence()}
          ${faker.lorem.sentence()}
+         ${faker.lorem.sentence()}
+         ${faker.lorem.sentence()}
          ${faker.lorem.sentence()}`,
       sections: [],
     };
@@ -41,7 +43,10 @@ for (let i = 0; i < 100; i += 1) {
         records[i].menus[j].sections[k].items[l] = {
           title: faker.random.words(),
           price: `$${faker.finance.amount()}`,
-          description: `${faker.lorem.sentence()} ${faker.lorem.sentence()}`,
+          description:
+            `${faker.lorem.sentence()}
+             ${faker.lorem.sentence()}
+             ${faker.lorem.sentence()}`,
         };
       }
     }
