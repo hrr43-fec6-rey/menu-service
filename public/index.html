@@ -33,20 +33,14 @@
     </style>
   </head>
   <body>
-    <div id="root" data-id="1">not loaded</div>
+    <div id="title">not loaded</div>
+    <br><br>
+    <div id="root">not loaded</div>
     <button id="button1">SHOW</button>
+    <button id="minus">-</button>
+    <button id="minus">+</button>
 
     <span id="test">HELLO THERE<div id="close">CLOSE</div></div>
-    <script>
-      const getId = function() {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get('id');
-        return id || 1;
-      }
-      const id = getId();
-      document.getElementById('root').setAttribute('data-id', id);
-    </script>
     <script src="main.js"></script>
     <script>
       document.getElementById('close').addEventListener('click', e => {
