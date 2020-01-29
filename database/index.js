@@ -50,4 +50,8 @@ const getRestaurantTitle = (id, cb) => {
 };
 
 module.exports.getRestaurantMenu = getRestaurantMenu;
+<<<<<<< HEAD
 module.exports.getRestaurantTitle = getRestaurantTitle;
+=======
+module.exports.getRestaurantTitle = getRestaurantTitle;
+>>>>>>> master
