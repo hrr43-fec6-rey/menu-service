@@ -40,4 +40,14 @@ const getRestaurantMenu = (id, cb) => {
   });
 };
 
+const getRestaurantTitle = (id, cb) => {
+  Restaurants.find({ id }, (err, restaurant) => {
+    if (err) {
+      return console.log(err);
+    }
+    return cb(restaurant[0].restaurant);
+  });
+};
+
 module.exports.getRestaurantMenu = getRestaurantMenu;
+module.exports.getRestaurantTitle = getRestaurantTitle;

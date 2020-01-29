@@ -1,10 +1,11 @@
 /* eslint-disable import/extensions */
+// const $ = require('jquery');
+// import axios from 'axios';
 import './Menu.css';
 import MenuNav from './MenuNav.jsx';
 
 const React = require('react');
-const $ = require('jquery');
-
+// const $ = require('jquery');
 
 class Menu extends React.Component {
   constructor(props) {
@@ -21,16 +22,27 @@ class Menu extends React.Component {
   componentDidMount() {
     const { id } = this.props;
     console.log(`requesting ${id}`);
-    $.ajax({
-      url: `/getmenu/${id}`,
-      success: (restaurant) => {
-        this.setState({ menus: restaurant[0].menus });
-        console.log(`menus = ${restaurant[0].menus.length}`);
-      },
-      error: () => {
-        console.log('Error getting restaurant');
-      },
-    });
+    // $.ajax({
+    //   url: `/getmenu/${id}`,
+    //   success: (restaurant) => {
+    //     this.setState({ menus: restaurant[0].menus });
+    //     console.log(`menus = ${restaurant[0].menus.length}`);
+    //   },
+    //   error: () => {
+    //     console.log('Error getting restaurant');
+    //   },
+    // });
+    // axios.get(`/getmenu/${id}`)
+    //   .then((result) => {
+    //     this.setState({ menus: result.data[0].menus });
+    //     console.log(`menus = ${result.data[0].menus.length}`);
+    //   });
+    fetch(`/getmenu/${id}`)
+      .then((response) => response.json())
+      .then((myJson) => {
+        this.setState({ menus: myJson[0].menus });
+        console.log(`menus = ${myJson[0].menus.length}`);
+      });
   }
 
   selectMenu(index) {
