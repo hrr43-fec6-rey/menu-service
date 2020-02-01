@@ -26,8 +26,6 @@ const MenuNav = ({
     }
   }
 
-  if (!menus) return null;
-
   const viewClass = viewFull ? ' full-view' : '';
 
   return (
@@ -96,7 +94,7 @@ const MenuNav = ({
 };
 
 MenuNav.defaultProps = {
-  menus: [],
+  menus: null,
   menuSelected: 0,
   viewFull: false,
   action: () => {},
