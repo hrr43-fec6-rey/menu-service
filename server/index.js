@@ -25,5 +25,5 @@ app.get('/gettitle/:id', (req, res) => {
 const port = (process.env.PORT ? process.env.PORT : 8000);
 
 app.listen(port, () => {
-  console.log(`App listening on port ${process.env.PORT}`);
+  console.log(`App listening on port ${port}`);
 });
