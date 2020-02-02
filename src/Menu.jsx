@@ -14,7 +14,6 @@ const Menu = ({ id }) => {
       .then((response) => response.json())
       .then((myJson) => {
         setMenus(myJson[0].menus);
-        console.log(`menus = ${myJson[0].menus.length}`);
       });
   }, []);
 
