@@ -7,8 +7,13 @@ function Title(props) {
   useEffect(() => {
     const { id } = props;
     console.log(`requesting ${id}`);
-
-    fetch(`/gettitle/${id}`)
+    fetch(`http://localhost:8000/gettitle/${id}`, {
+      // mode: 'no-cors',
+      headers: {
+        'access-control-allow-origin': '*',
+        //'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
       .then((response) => response.json())
       .then((myJson) => {
         setRestaurantName(myJson);
