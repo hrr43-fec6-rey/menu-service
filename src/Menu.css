@@ -1,12 +1,15 @@
 @font-face {
   font-family: BrandonText;
-  src: url("BrandonText-Regular.otf") format("opentype");
+  src: url("fonts/BrandonText-Regular.otf") format("opentype");
 }
 
 .restaurant-title {
   font-size: 48px;
   font-family: BrandonText;
   font-weight: 700;
+  background-color: #fff;
+  padding: 24px 0 24px 0;
+  border-bottom: 1px solid #d8d9db;
 }
 
 .menu-and-nav {
@@ -22,7 +25,7 @@
   color: #2d333f;
   background-color: white;
   font-family: BrandonText;
-  max-width: 600px;
+  max-width: 640px;
 }
 
 .menu-title {

@@ -3,16 +3,19 @@ const faker = require('faker');
 const mongoose = require('mongoose');
 const restaurantSchema = require('./schema.js');
 
-mongoose.connect('mongodb://localhost/menus',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  });
+mongoose.connect('mongodb://localhost/menus', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
 
+// Helper Functions
+const randomItems = () => Math.floor(Math.random() * 6) + 4;
+const randomSections = () => Math.floor(Math.random() * 3) + 1;
+
+// create 100 records
 const records = [];
-
 for (let i = 0; i < 100; i += 1) {
   records[i] = {
     id: i + 1,
@@ -34,13 +37,15 @@ for (let i = 0; i < 100; i += 1) {
       sections: [],
     };
 
-    for (let k = 0; k < 3; k += 1) {
+    const sectionLength = randomSections();
+    for (let k = 0; k < sectionLength; k += 1) {
       records[i].menus[j].sections[k] = {
         title: faker.random.words(),
         items: [],
       };
 
-      for (let l = 0; l < 6; l += 1) {
+      const itemLength = randomItems();
+      for (let l = 0; l < itemLength; l += 1) {
         records[i].menus[j].sections[k].items[l] = {
           title: faker.random.words(),
           price: `$${faker.finance.amount()}`,
@@ -56,6 +61,7 @@ for (let i = 0; i < 100; i += 1) {
 
 const Restaurants = mongoose.model('restaurants', restaurantSchema);
 
+// remove all records and add all records in the array
 Restaurants.remove({}, (err1) => {
   if (err1) {
     return console.log(err1);

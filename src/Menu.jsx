@@ -1,8 +1,7 @@
-/* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './Menu.css';
-import MenuNav from './MenuNav.jsx';
+import MenuNav from './MenuNav';
 
 const Menu = ({ id }) => {
   const [menus, setMenus] = useState([{ description: '', sections: [] }]);
@@ -10,7 +9,7 @@ const Menu = ({ id }) => {
   const [viewFull, setViewFull] = useState(false);
 
   useEffect(() => {
-    fetch(`/getmenu/${id}`)
+    fetch(`http://localhost:8000/getmenu/${id}`)
       .then((response) => response.json())
       .then((myJson) => {
         setMenus(myJson[0].menus);
