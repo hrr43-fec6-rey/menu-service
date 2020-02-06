@@ -7,7 +7,7 @@ function Title(props) {
   useEffect(() => {
     const { id } = props;
     console.log(`requesting ${id}`);
-    fetch(`http://localhost:8000/gettitle/${id}`, {
+    fetch(`/gettitle/${id}`, {
       // mode: 'no-cors',
       headers: {
         'access-control-allow-origin': '*',
