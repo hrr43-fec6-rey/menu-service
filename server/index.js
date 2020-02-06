@@ -6,10 +6,10 @@ const db = require('./../database');
 const app = express();
 
 app.use(cors());
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Headers', '*');
-//   next();
-// });
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Headers', '*');
+  next();
+});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
