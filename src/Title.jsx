@@ -7,7 +7,7 @@ function Title(props) {
   useEffect(() => {
     const { id } = props;
     console.log(`requesting ${id}`);
-    fetch(`/gettitle/${id}`, {
+    fetch(`http://ec2-18-220-101-217.us-east-2.compute.amazonaws.com:8000/gettitle/${id}`, {
       // mode: 'no-cors',
       headers: {
         'access-control-allow-origin': '*',
