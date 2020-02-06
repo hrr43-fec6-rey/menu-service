@@ -9,7 +9,7 @@ const Menu = ({ id }) => {
   const [viewFull, setViewFull] = useState(false);
 
   useEffect(() => {
-    fetch(`http://ec2-18-220-101-217.us-east-2.compute.amazonaws.com:8000/getmenu/${id}`)
+    fetch(`/getmenu/${id}`)
       .then((response) => response.json())
       .then((myJson) => {
         setMenus(myJson[0].menus);
